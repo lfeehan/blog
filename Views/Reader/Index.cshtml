@@ -1,0 +1,76 @@
+﻿@model MvcDemo.Models.BlogContext
+
+@{
+    ViewBag.Title = "Visitor View";
+}
+
+<h2>Visitor View</h2>
+
+<div class="container">
+
+
+         <br />
+
+            
+    @{
+        var items = from c in Model.Posts orderby c.Id descending select c;
+    }
+
+    @foreach (var item in items) {
+        <div class="readerPost">
+            <div class="postTitle">     
+                @Html.DisplayFor(modelItem => item.Title)
+            </div>
+
+            <div class="postBody"> 
+                @Html.DisplayFor(modelItem => item.Content)
+            </div>
+            <br />
+            <div class="postDate">
+                Posted on: <i>@Html.DisplayFor(modelItem => item.DateCreated)</i>
+            </div>
+        
+            <div class="postCategory">
+                Posted in category: @Html.DisplayFor(modelItem => item.Tag)
+            </div>
+        </div><!-- end of post -->
+               
+        var found = from c in Model.Comments
+                    where c.PostId == item.Id
+                    select c;
+        int count = found.Count();
+        
+        <div class="pop_layer1">
+            <p class="pop_heading" style="float:left; width:450px; margin-left:100px;">
+                <img alt="comments" src ='@Url.Content( "~/Content/Images/comments.png" )' style="vertical-align:text-top;"/>
+                View Comments (@count)
+            </p>
+                <div class="pop_content" style="float:left; width:430px; margin-left: 120px;">
+                    @foreach (var comm in found)
+                    {
+                        <div class="individualComment" style="width:425px;">
+                            Posted by: @Html.DisplayFor(modelItem => comm.Name)
+                            <br />
+                            <i>
+                            at: @Html.DisplayFor(modelItem => comm.DateCreated)
+                            <br />
+                            contact: @Html.DisplayFor(modelItem => comm.Email)
+                            <br />
+                            </i>
+                            <b style="margin:10px;">
+                            @Html.DisplayFor(modelItem => comm.Content)
+                            </b>
+                        </div>
+
+                    }
+                    <a href="@Url.Action("AddComment", new { id = item.Id })" >
+                    <img alt="new comment" src='@Url.Content("~/Content/Images/new.png")' style="vertical-align:text-top;" />
+                        Add Comment...
+                    </a>
+                </div>
+        </div>
+        <hr style="float: left; width:580px; padding-right:100px;" />
+    }
+</div><!-- end of container -->
+
+

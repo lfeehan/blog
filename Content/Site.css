@@ -1,0 +1,233 @@
+﻿body
+{
+font: "Trebuchet MS", Verdana, sans-serif;
+/*background-color: #A38A77;*/
+
+background: -moz-linear-gradient(left, rgba(155,131,96,1) 0%, rgba(159,136,103,1) 5%, rgba(224,222,220,0.21) 93%, rgba(229,229,229,0.21) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(155,131,96,1)), color-stop(5%,rgba(159,136,103,1)), color-stop(93%,rgba(224,222,220,0.21)), color-stop(100%,rgba(229,229,229,0.21))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, rgba(155,131,96,1) 0%,rgba(159,136,103,1) 5%,rgba(224,222,220,0.21) 93%,rgba(229,229,229,0.21) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, rgba(155,131,96,1) 0%,rgba(159,136,103,1) 5%,rgba(224,222,220,0.21) 93%,rgba(229,229,229,0.21) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left, rgba(155,131,96,1) 0%,rgba(159,136,103,1) 5%,rgba(224,222,220,0.21) 93%,rgba(229,229,229,0.21) 100%); /* IE10+ */
+background: linear-gradient(left, rgba(155,131,96,1) 0%,rgba(159,136,103,1) 5%,rgba(224,222,220,0.21) 93%,rgba(229,229,229,0.21) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9b8360', endColorstr='#36e5e5e5',GradientType=1 ); /* IE6-9 */
+
+color: #696969;
+}
+h1
+{
+border-bottom: 3px solid #cc9900;
+font: Georgia, serif;
+color: #996600;
+}
+h2
+{
+    margin-left: 80px;
+}
+
+#main
+{   
+    margin-left: 80px;
+    width:800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 0 4px 4px 4px;
+}
+a
+{
+color: #034af3;
+}
+/* Menu Styles ------------------------------*/
+ul#menu
+{
+    
+padding: 0px;
+position: relative;
+margin-left: 80px;
+margin-bottom:1px;
+
+}
+ul#menu li
+{
+display: inline;
+}
+ul#menu li a
+{
+background-color: #fff;
+padding: 10px 20px;
+text-decoration: none;
+line-height: 2.8em;
+/*CSS3 properties*/
+border-radius: 5px 5px 0 0;
+}
+ul#menu li a:hover
+{
+background-color: #ddd;
+}
+
+
+/* Forms Styles ------------------------------*/
+fieldset
+{
+padding-left: 12px;
+}
+fieldset label
+{
+display: block;
+padding: 4px;
+}
+input[type="text"], input[type="password"]
+{
+width: 300px;
+}
+input[type="submit"]
+{
+padding: 4px;
+}
+/* Data Styles ------------------------------*/
+table.data
+{
+background-color:#ffffff;
+border:1px solid #c3c3c3;
+border-collapse:collapse;
+width:100%;
+}
+table.data th
+{
+background-color:#e8eef4;
+border:1px solid #c3c3c3;
+padding:3px;
+}
+table.data td
+{
+border:1px solid #c3c3c3;
+padding:3px;
+}
+
+.container
+{
+    background: url("/Content/Images/Bg_paper.jpg");
+    max-width: 1200px;
+	width:600px;
+	/*height:500px;*/	
+	overflow:hidden;
+	position:relative;
+				
+	margin: 25px auto;
+	margin-bottom: 5px;
+	padding: 25px;
+	
+	
+	border: 3px solid #a29f9b;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0 0 10px #1b1c25;
+	-webkit-box-shadow: 0 0 10px #1b1c25;
+	box-shadow: 0 0 10px #1b1c25;
+}
+
+
+.post
+{
+    float: left;
+    width: 480px;
+}
+
+.readerPost
+{
+    float: left;
+    width: 580px;
+}
+
+    .postTitle
+    {
+        font-size:20pt;
+        font-family:Century Gothic, sans-serif;
+        font-weight:bolt;
+        color:#8A7A4A;
+    
+    }
+
+    .postCategory
+    {
+    
+        font-size:10pt;
+        font-family:‘Courier New’, Courier, monospace;
+        color:#8A7A4A;
+    }
+
+    .postTags
+    {
+        font-size:10pt;
+        font-family:‘Courier New’, Courier, monospace;
+        color:#8A7A4A;   
+    }
+
+    .postDate
+    {
+    
+    }
+
+    .postBody 
+    {
+    
+    }
+
+
+
+.postControls
+{
+    padding:20px;
+    float: left;
+    width:80px;
+}
+      
+#posttextbox
+{
+    width: 500px;
+    height: 200px;
+}
+
+.individualComment
+{
+    width: 350px;
+    float: left;
+    background:#ddd;
+    margin-bottom:20px;
+}
+
+.commentsBlock
+{
+    float:left;
+    width:440px;
+    margin-left:50px;  
+}
+
+
+.pop_layer1
+{
+    margin: 0;
+    padding: 0;
+    width: 500px;
+}
+ 
+.pop_heading
+{
+    margin-left: 20px;
+    color: #fff;
+    padding: 3px 10px;
+    cursor: pointer;
+    position: relative;
+    background-color:#B3BA9A;
+}
+.pop_content 
+{
+    margin-left: 50px;
+    padding: 5px 10px;
+
+}
+
+
+
+
+

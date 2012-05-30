@@ -1,0 +1,90 @@
+﻿@model MvcDemo.Models.BlogContext
+
+@{
+    ViewBag.Title = "Admin View";
+}
+
+<h2>Admin View</h2>
+
+<div class="container">
+
+    <a href="@Url.Action("Create")" >
+        <img alt="new post" src='@Url.Content("~/Content/Images/new.png")' style="vertical-align:text-top;" />
+    Add new post...
+    </a>
+         <br />
+         <hr style="float:left; width:500px;"/>
+
+    @foreach (var item in Model.Posts) {
+        <div class="post">
+            <div class="postTitle">     
+                @Html.DisplayFor(modelItem => item.Title)
+            </div>
+
+            <div class="postBody"> 
+                @Html.DisplayFor(modelItem => item.Content)
+            </div>
+            <br />
+            <div class="postDate">
+                Posted on: <i>@Html.DisplayFor(modelItem => item.DateCreated)</i>
+            </div>
+        
+            <div class="postCategory">
+                Posted in category: @Html.DisplayFor(modelItem => item.Tag)
+            </div>
+        </div><!-- end of post -->
+        
+        <div class="postControls">
+            <a href="@Url.Action("Edit", new { id = item.Id })" >
+                <img alt="edit" src='@Url.Content("~/Content/Images/edit.png")' style="vertical-align:text-top;"/>
+             Edit
+             </a>
+            <br />
+            <br />
+            <a href="@Url.Action("Delete", new { id = item.Id })" >
+                <img alt="delete" src='@Url.Content("~/Content/Images/delete.png")' style="vertical-align:text-top;"/>
+             Delete
+            </a>
+        </div><!-- end of postControls -->
+        
+        var found = from c in Model.Comments
+                    where c.PostId == item.Id
+                    select c;
+        int count = found.Count();
+        
+        <div class="pop_layer1">
+            <p class="pop_heading" style="float:left; width:450px;">
+                <img alt="comments" src='@Url.Content("~/Content/Images/comments.png")' style="vertical-align:text-top;"/>
+                View Comments (@count)
+            </p>
+                <div class="pop_content" style="float:left; width:450px;">
+                    @foreach (var comm in found)
+                    {
+                        <div class="individualComment">
+                            Posted by: @Html.DisplayFor(modelItem => comm.Name)
+                            <br />
+                            <i>
+                            at: @Html.DisplayFor(modelItem => comm.DateCreated)
+                            <br />
+                            contact: @Html.DisplayFor(modelItem => comm.Email)
+                            <br />
+                            </i>
+                            <b style="margin:10px;">
+                            @Html.DisplayFor(modelItem => comm.Content)
+                            </b>
+                        </div>
+                        <div style="float:left; width: 100px; margin-top:5px;">
+                            <a href="@Url.Action("DeleteComment", new { id = comm.Id })" >
+                                <img alt="delete" src='@Url.Content("~/Content/Images/delete.png")' style="vertical-align:text-top;"/>
+                                Remove
+                            </a>
+                        
+                        </div>
+                    }
+                </div>
+        </div>
+        <hr style="float: left; width:500px; padding-right:100px;" />
+    }
+</div><!-- end of container -->
+
+

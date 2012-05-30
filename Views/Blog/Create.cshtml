@@ -1,0 +1,57 @@
+﻿@model MvcDemo.Models.Post
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create New Post</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    <div class="container">
+        @using (Html.BeginForm()) {
+            @Html.ValidationSummary(true)
+            
+                
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.posterid)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.posterid)
+                    @Html.ValidationMessageFor(model => model.posterid)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Title)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Title)
+                    @Html.ValidationMessageFor(model => model.Title)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Tag)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Tag)
+                    @Html.ValidationMessageFor(model => model.Tag)
+                </div>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Content)
+                </div>
+            
+                <div class="editor-field">
+                    @Html.TextAreaFor(model => model.Content, new { id= "posttextbox"})
+                    @Html.ValidationMessageFor(model => model.Content)
+                </div>
+
+                <p>
+                    <input type="submit" value="Create" /> | @Html.ActionLink("Back to Posts", "Index")
+                </p>
+           
+        }
+    </div>
+
